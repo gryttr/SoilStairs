@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "soilstairs:block/podzol_slab" },
+        "type=top": { "model": "soilstairs:block/podzol_slab_top" },
+        "type=double": { "model": "block/podzol" }
+    }
+}

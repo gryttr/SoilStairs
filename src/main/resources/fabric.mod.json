@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "soilstairs",
+  "version": "${version}",
+
+  "name": "Soil Stairs",
+  "description": "Adds stairs and slabs based on the Minecraft soil blocks",
+  "authors": [
+    "HeimrArnadalr"
+  ],
+  "contact": {
+    "homepage": "https://github.com/gryttr",
+    "sources": "https://github.com/gryttr/SoilStairs"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/soilstairs/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.heimrarnadalr.soilstairs.SoilStairsMod"
+    ],
+    "client": [
+      "net.heimrarnadalr.soilstairs.SoilStairsMod"
+    ]
+  },
+  "mixins": [
+    "soilstairs.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

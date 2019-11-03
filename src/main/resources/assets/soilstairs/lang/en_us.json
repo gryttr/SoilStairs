@@ -1,0 +1,15 @@
+{
+	"block.soilstairs.dirt_stairs": "Dirt Stairs",
+	"block.soilstairs.coarse_dirt_stairs": "Coarse Dirt Stairs",
+	"block.soilstairs.grass_stairs": "Grass Block Stairs",
+	"block.soilstairs.grass_path_stairs": "Grass Path Stairs",
+	"block.soilstairs.mycelium_stairs": "Mycelium Stairs",
+	"block.soilstairs.podzol_stairs": "Podzol Stairs",
+
+	"block.soilstairs.dirt_slab": "Dirt Slab",
+	"block.soilstairs.coarse_dirt_slab": "Coarse Dirt Slab",
+	"block.soilstairs.grass_slab": "Grass Slab",
+	"block.soilstairs.grass_path_slab": "Grass Path Slab",
+	"block.soilstairs.mycelium_slab": "Mycelium Slab",
+	"block.soilstairs.podzol_slab": "Podzol Slab"
+}
