@@ -5,11 +5,11 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:coarse_dirt"
+      "item": "minecraft:dirt"
     }
   },
   "result": {
-    "item": "soilstairs:coarse_dirt_slab",
+    "item": "soilstairs:dirt_slab",
     "count": 6
   }
 }
