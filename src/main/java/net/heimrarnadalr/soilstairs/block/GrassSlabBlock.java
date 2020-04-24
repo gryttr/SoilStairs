@@ -5,9 +5,9 @@ import java.util.Random;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -20,12 +20,7 @@ public class GrassSlabBlock extends SlabBlock {
 	}
 
 	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.CUTOUT_MIPPED;
-	}
-
-	@Override
-	public void onScheduledTick(BlockState bs, World world, BlockPos pos, Random rand) {
+	public void scheduledTick(BlockState bs, ServerWorld world, BlockPos pos, Random rand) {
 		if (!world.isClient) {
 			if (!GrassStairsBlock.canSurvive(bs, world, pos)) {
 				world.setBlockState(pos, SoilStairsBlocks.DIRT_SLAB.getDefaultState()

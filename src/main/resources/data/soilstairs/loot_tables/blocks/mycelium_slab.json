@@ -52,7 +52,7 @@
 	              "conditions": [
 	                {
 	                  "condition": "minecraft:block_state_property",
-	                  "block": "soilstairs:dirt_slab",
+	                  "block": "soilstairs:mycelium_slab",
 	                  "properties": {
 	                    "type": "double"
 	                  }

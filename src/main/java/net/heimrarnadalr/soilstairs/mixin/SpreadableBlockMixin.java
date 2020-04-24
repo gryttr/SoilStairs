@@ -6,8 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SpreadableBlock;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -18,8 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SpreadableBlock.class)
 public class SpreadableBlockMixin {
-	@Inject(at = @At("TAIL"), method = "onScheduledTick")
-	private void onScheduledTick(BlockState bs, World world, BlockPos pos, Random rand, CallbackInfo info) {
+	@Inject(at = @At("TAIL"), method = "scheduledTick")
+	private void scheduledTick(BlockState bs, ServerWorld world, BlockPos pos, Random rand, CallbackInfo info) {
 		if (!world.isClient) {
 			Block spreadingBlock = bs.getBlock();
 			if (spreadingBlock == Blocks.GRASS_BLOCK || spreadingBlock == Blocks.MYCELIUM) {

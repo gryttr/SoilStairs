@@ -12,7 +12,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "soilstairs:dirt_slab",
+                  "block": "soilstairs:grass_path_slab",
                   "properties": {
                     "type": "double"
                   }

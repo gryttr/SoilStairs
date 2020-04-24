@@ -13,7 +13,7 @@
     "sources": "https://github.com/gryttr/SoilStairs"
   },
 
-  "license": "CC0-1.0",
+  "license": "GPLv3",
   "icon": "assets/soilstairs/icon.png",
 
   "environment": "*",
@@ -30,10 +30,10 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.4.0",
-    "fabric": "*"
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.15.x"
   },
   "suggests": {
-    "flamingo": "*"
   }
 }

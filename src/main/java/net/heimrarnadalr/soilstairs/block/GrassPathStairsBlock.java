@@ -8,13 +8,13 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.enums.BlockHalf;
 import net.minecraft.block.enums.StairShape;
 import net.minecraft.entity.EntityContext;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
 
 public class GrassPathStairsBlock extends SoilStairsBlock {
 	protected static final VoxelShape TOP_SHAPE;
@@ -53,7 +53,7 @@ public class GrassPathStairsBlock extends SoilStairsBlock {
 	}
 
 	@Override
-	public void onScheduledTick(BlockState bs, World world, BlockPos pos, Random rand) {
+	public void scheduledTick(BlockState bs, ServerWorld world, BlockPos pos, Random rand) {
 		world.setBlockState(pos, SoilStairsBlocks.DIRT_STAIRS.getDefaultState()
 				.with(FACING, bs.get(FACING))
 				.with(HALF, bs.get(HALF))

@@ -14,12 +14,12 @@ import net.minecraft.block.StairsBlock;
 import net.minecraft.block.enums.BlockHalf;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ViewableWorld;
+import net.minecraft.world.WorldView;
 
 @Mixin(MushroomPlantBlock.class)
 public class CanPlaceAtMixin {
 	@Inject(at = @At("HEAD"), method = "canPlaceAt", cancellable = true)
-	public void canPlaceAt(BlockState bs, ViewableWorld viewableWorld, BlockPos pos, CallbackInfoReturnable<Boolean> info) {
+	public void canPlaceAt(BlockState bs, WorldView viewableWorld, BlockPos pos, CallbackInfoReturnable<Boolean> info) {
 		BlockPos posDown = pos.down();
 		BlockState bsDown = viewableWorld.getBlockState(posDown);
 		Block blockDown = bsDown.getBlock();

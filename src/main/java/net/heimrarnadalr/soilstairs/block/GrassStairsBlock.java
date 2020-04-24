@@ -8,10 +8,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SnowBlock;
 import net.minecraft.block.SnowyBlock;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ViewableWorld;
+import net.minecraft.world.WorldView;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
@@ -21,13 +22,13 @@ public class GrassStairsBlock extends SoilStairsBlock {
 		super(blockState, settings);
 	}
 
-	public static boolean canSurvive(BlockState bs, ViewableWorld viewableWorld, BlockPos pos) {
+	public static boolean canSurvive(BlockState bs, WorldView viewableWorld, BlockPos pos) {
 		BlockPos posUp = pos.up();
 		BlockState bsUp = viewableWorld.getBlockState(posUp);
 		if (bsUp.getBlock() == Blocks.SNOW && (Integer)bsUp.get(SnowBlock.LAYERS) == 1) {
 			return true;
 		} else {
-			int light = ChunkLightProvider.method_20049(viewableWorld, bs, pos, bsUp, posUp, Direction.UP, bsUp.getLightSubtracted(viewableWorld, posUp));
+			int light = ChunkLightProvider.getRealisticOpacity(viewableWorld, bs, pos, bsUp, posUp, Direction.UP, bsUp.getOpacity(viewableWorld, posUp));
 			if (light < viewableWorld.getMaxLightLevel()) {
 				return true;
 			} else {
@@ -36,7 +37,7 @@ public class GrassStairsBlock extends SoilStairsBlock {
 		}
 	}
 
-	public static boolean canSpread(BlockState bs, ViewableWorld viewableWorld, BlockPos pos) {
+	public static boolean canSpread(BlockState bs, WorldView viewableWorld, BlockPos pos) {
 		BlockPos posUp = pos.up();
 		return canSurvive(bs, viewableWorld, pos) && !viewableWorld.getFluidState(posUp).matches(FluidTags.WATER);
 	}
@@ -76,7 +77,7 @@ public class GrassStairsBlock extends SoilStairsBlock {
 	}
 	
 	@Override
-	public void onScheduledTick(BlockState bs, World world, BlockPos pos, Random rand) {
+	public void scheduledTick(BlockState bs, ServerWorld world, BlockPos pos, Random rand) {
 		if (!world.isClient) {
 			if (!canSurvive(bs, world, pos)) {
 				world.setBlockState(pos, SoilStairsBlocks.DIRT_STAIRS.getDefaultState()
