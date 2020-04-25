@@ -3,8 +3,6 @@
   "package": "net.heimrarnadalr.soilstairs.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-  ],
-  "client": [
     "SpreadableBlockMixin",
     "PathMixin",
     "PlantOnTopMixin",
