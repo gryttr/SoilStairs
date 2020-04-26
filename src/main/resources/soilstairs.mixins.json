@@ -8,7 +8,9 @@
     "PlantOnTopMixin",
     "HoeMixin",
     "CanPlaceAtMixin",
-    "SugarCanPlaceAtMixin"
+    "SugarCanPlaceAtMixin",
+    "IsDirtMixin",
+    "AlterGroundTreeDecoratorMixin"
   ],
   "injectors": {
     "defaultRequire": 1
