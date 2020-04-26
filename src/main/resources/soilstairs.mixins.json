@@ -11,7 +11,8 @@
     "SugarCanPlaceAtMixin",
     "IsDirtMixin",
     "AlterGroundTreeDecoratorMixin",
-    "DeadBushMixin"
+    "DeadBushMixin",
+    "StemBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
