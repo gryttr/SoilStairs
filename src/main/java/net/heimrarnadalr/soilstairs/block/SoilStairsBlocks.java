@@ -4,13 +4,18 @@ import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tools.FabricToolTags;
 import net.heimrarnadalr.soilstairs.SoilStairsMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.WorldView;
 
 public class SoilStairsBlocks {
 
@@ -47,5 +52,28 @@ public class SoilStairsBlocks {
 		registerBuildingBlock(GRASS_PATH_SLAB, "grass_path_slab");
 		registerBuildingBlock(MYCELIUM_SLAB, "mycelium_slab");
 		registerBuildingBlock(PODZOL_SLAB, "podzol_slab");
+	}
+
+	private static final Block[][] BAMBOO_BLOCKS = {
+			{SoilStairsBlocks.DIRT_STAIRS, SoilStairsBlocks.DIRT_SLAB, Blocks.DIRT},
+			{SoilStairsBlocks.GRASS_STAIRS, SoilStairsBlocks.GRASS_SLAB, Blocks.GRASS_BLOCK},
+			{SoilStairsBlocks.COARSE_DIRT_STAIRS, SoilStairsBlocks.COARSE_DIRT_SLAB, Blocks.COARSE_DIRT},
+			{SoilStairsBlocks.PODZOL_STAIRS, SoilStairsBlocks.PODZOL_SLAB, Blocks.PODZOL},
+			{SoilStairsBlocks.MYCELIUM_STAIRS, SoilStairsBlocks.MYCELIUM_SLAB, Blocks.MYCELIUM}
+	};
+		
+	public static boolean isValidSoilStairForBamboo(WorldView world, BlockPos pos) {
+		BlockPos posDown = pos.down();
+		BlockState bsDown = world.getBlockState(posDown);
+		Block blockDown = bsDown.getBlock();
+
+		for (int i = 0; i < BAMBOO_BLOCKS.length; ++i) {
+			if (blockDown == BAMBOO_BLOCKS[i][0] || blockDown == BAMBOO_BLOCKS[i][1]) {
+				return BlockTags.BAMBOO_PLANTABLE_ON.contains(BAMBOO_BLOCKS[i][2]) &&
+						Block.isFaceFullSquare(bsDown.getCollisionShape(world, posDown), Direction.UP);
+			}
+		}
+		
+		return false;
 	}
 }

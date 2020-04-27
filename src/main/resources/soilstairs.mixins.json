@@ -12,7 +12,9 @@
     "IsDirtMixin",
     "AlterGroundTreeDecoratorMixin",
     "DeadBushMixin",
-    "StemBlockMixin"
+    "StemBlockMixin",
+    "BambooBlockMixin",
+    "BambooSaplingBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
