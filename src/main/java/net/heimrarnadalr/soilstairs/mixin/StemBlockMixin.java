@@ -23,9 +23,8 @@ import net.minecraft.util.math.Direction;
 
 @Mixin(StemBlock.class)
 public class StemBlockMixin {
-	@Inject(at = @At(args="log=true", value = "INVOKE_ASSIGN", target = "net/minecraft/block/BlockState.getBlock()Lnet/minecraft/block/Block;", ordinal = 0), method = "scheduledTick", locals = LocalCapture.CAPTURE_FAILSOFT)
+	@Inject(at = @At(value = "INVOKE_ASSIGN", target = "net/minecraft/block/BlockState.getBlock()Lnet/minecraft/block/Block;", ordinal = 0), method = "scheduledTick", locals = LocalCapture.CAPTURE_FAILSOFT)
 	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci, Direction direction, BlockPos posDir, Block groundBlock) {
-		System.out.println("Attempting to plant gourd on " + groundBlock.getName());
 		BlockState groundState = world.getBlockState(posDir.down());
 		boolean validGourdSpot = false;
 		if (groundBlock == SoilStairsBlocks.DIRT_SLAB || groundBlock == SoilStairsBlocks.COARSE_DIRT_SLAB || groundBlock == SoilStairsBlocks.PODZOL_SLAB || groundBlock == SoilStairsBlocks.GRASS_SLAB) {
