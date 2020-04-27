@@ -14,7 +14,8 @@
     "DeadBushMixin",
     "StemBlockMixin",
     "BambooBlockMixin",
-    "BambooSaplingBlockMixin"
+    "BambooSaplingBlockMixin",
+    "EatGrassGoalMixin"
   ],
   "injectors": {
     "defaultRequire": 1
