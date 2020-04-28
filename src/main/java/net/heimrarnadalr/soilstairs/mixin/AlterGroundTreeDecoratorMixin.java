@@ -18,7 +18,7 @@ import net.minecraft.world.gen.decorator.AlterGroundTreeDecorator;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 
 @Mixin(AlterGroundTreeDecorator.class)
-public class AlterGroundtreeDecoratorMixin {
+public class AlterGroundTreeDecoratorMixin {
 	@Inject(at = @At("HEAD"), method = "method_23463")
 	public void method_23463(ModifiableTestableWorld modifiableTestableWorld, Random random, BlockPos blockPos, CallbackInfo ci) {
 		for (int i = 2; i >= -3; --i) {
